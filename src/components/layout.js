@@ -1,14 +1,27 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { StaticQuery, Link, graphql } from 'gatsby'
 
 export default ({ children }) => (
-  <div>
-    <Link to={`/`}>
-      <h3>pragmatic me</h3>
-    </Link>
-    <Link to={`/blog/`}>
-      <h3>the blog</h3>
-    </Link>
-    {children}
-  </div>
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <div>
+        <Link to={`/`}>
+          <h3>{data.site.siteMetadata.title}</h3>
+        </Link>
+        <Link to={`/blog/`}>
+          <h3>the blog</h3>
+        </Link>
+        {children}
+      </div>
+    )}
+  />
 )
