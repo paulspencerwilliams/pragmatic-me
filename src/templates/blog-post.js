@@ -5,7 +5,11 @@ import { graphql } from 'gatsby'
 export default ({ data }) => (
   <Layout>
     <h1>{data.contentfulBlogPost.title}</h1>
-    <div>Blog post...</div>
+    <div
+      dangerouslySetInnerHTML={{
+        __html: data.contentfulBlogPost.plainContent.childMarkdownRemark.html,
+      }}
+    />
   </Layout>
 )
 export const query = graphql`
@@ -19,6 +23,11 @@ export const query = graphql`
       id
       title
       slug
+      plainContent {
+        childMarkdownRemark {
+          html
+        }
+      }
     }
   }
 `
