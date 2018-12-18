@@ -7,7 +7,7 @@ export default ({ data }) => (
     <h1>{data.contentfulBlogPost.title}</h1>
     <div
       dangerouslySetInnerHTML={{
-        __html: data.contentfulBlogPost.plainContent.childMarkdownRemark.html,
+        __html: data.contentfulBlogPost.content.childContentfulRichText.html,
       }}
     />
   </Layout>
@@ -23,8 +23,8 @@ export const query = graphql`
       id
       title
       slug
-      plainContent {
-        childMarkdownRemark {
+      content {
+        childContentfulRichText {
           html
         }
       }
