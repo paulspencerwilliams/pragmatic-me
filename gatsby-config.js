@@ -7,6 +7,7 @@ module.exports = {
     title: 'Pragmatic me',
   },
   plugins: [
+    `@contentful/gatsby-transformer-contentful-richtext`,
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,

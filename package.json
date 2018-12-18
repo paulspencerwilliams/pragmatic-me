@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@contentful/gatsby-transformer-contentful-richtext": "^12.1.2",
     "@emotion/core": "^10.0.1",
     "@emotion/styled": "^10.0.1",
     "emotion": "^10.0.1",
